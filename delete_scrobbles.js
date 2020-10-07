@@ -18,12 +18,15 @@ function get_rows() {
   return rows;
 }
 
-function handle_row(row, match) {
+
+async function handle_row(row, match) {
   const text = row.textContent.toLowerCase();
 
   if (text.includes(match)) {
     const delete_btn = row.querySelector(DELETE_CLS);
     delete_btn.click();
+ 
+    await sleep(SLEEP_FOR);
   }
 }
 
@@ -32,10 +35,7 @@ async function delete_tracks(rows, match) {
   match = match.toLowerCase();
 
   for (const row of rows) {
-    handle_row(row, match);
-
-    await sleep(SLEEP_FOR);
-
+    await handle_row(row, match);
   }
 }
 
