@@ -23,7 +23,7 @@ function handle_row(row, match) {
   match = match.toLowerCase();
   const text = row.textContent.toLowerCase();
 
-  if (text.includes(artist)) {
+  if (text.includes(match)) {
     const delete_btn = row.querySelector(DELETE_CLS);
     delete_btn.click();
   }
