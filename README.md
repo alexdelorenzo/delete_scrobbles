@@ -1,4 +1,4 @@
-# Automatically delete scrobbles on Last.fm 
+# ❌ Automatically delete scrobbles on Last.fm 
 ## Usage
 
 Navigate to `https://www.last.fm/user/YOUR_USERNAME/library` and find the tracks you want to delete.
