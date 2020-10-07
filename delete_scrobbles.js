@@ -3,7 +3,7 @@ const DELETE_MATCHING = "Your text here";
 
 const ROW_CLS = ".chartlist-row";
 const DELETE_CLS = ".more-item--delete";
-const SLEEP_FOR = 800;
+const SLEEP_FOR = 600;
 
 
 function sleep(ms) {
@@ -18,9 +18,7 @@ function get_rows() {
   return rows;
 }
 
-
 function handle_row(row, match) {
-  match = match.toLowerCase();
   const text = row.textContent.toLowerCase();
 
   if (text.includes(match)) {
@@ -31,10 +29,13 @@ function handle_row(row, match) {
 
 
 async function delete_tracks(rows, match) {
+  match = match.toLowerCase();
+
   for (const row of rows) {
     handle_row(row, match);
 
     await sleep(SLEEP_FOR);
+
   }
 }
 
@@ -45,4 +46,4 @@ async function main() {
 }
 
 
-await main()
+await main();
