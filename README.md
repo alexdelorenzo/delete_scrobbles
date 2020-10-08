@@ -11,6 +11,6 @@ const DELETE_MATCHING = "Radiohead";
 
 Then copy and past the script into your browser's JavaScript console. 
 
-## Todo
+## To do
 
 Turn this into a UserScript so you don't need to enter it via the JavaScript console.
