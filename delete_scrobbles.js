@@ -1,9 +1,15 @@
 // Replace DELETE_MATCHING with the text on the scrobbles you want to delete
-const DELETE_MATCHING = "Your text here";
+const DELETE_MATCHING = "whirr";
+
+// Change to true if you want to cycle through all pages to delete scrobbles
+const ALL_PAGES = false;
 
 const ROW_CLS = ".chartlist-row";
 const DELETE_CLS = ".more-item--delete";
-const SLEEP_FOR = 600;
+const PAGINATOR_CLS = ".pagination-page";
+const NEXT_CLS = ".pagination-next";
+const NEXT_LINK = `${NEXT_CLS} > a`;
+const SLEEP_FOR = 100;
 
 
 function sleep(ms) {
@@ -18,14 +24,13 @@ function get_rows() {
   return rows;
 }
 
-
 async function handle_row(row, match) {
   const text = row.textContent.toLowerCase();
 
   if (text.includes(match)) {
     const delete_btn = row.querySelector(DELETE_CLS);
     delete_btn.click();
- 
+
     await sleep(SLEEP_FOR);
   }
 }
@@ -40,9 +45,30 @@ async function delete_tracks(rows, match) {
 }
 
 
+function next_page() {
+  const next_link = document.querySelector(NEXT_LINK);
+
+  if (next_link !== null) {
+    next_link.click();
+    return true;
+  }
+  
+  return false;
+}
+
+
 async function main() {
-  const rows = get_rows();
-  await delete_tracks(rows, DELETE_MATCHING);
+  while (true) {
+    const rows = get_rows();
+    await delete_tracks(rows, DELETE_MATCHING);
+
+  	if (ALL_PAGES && next_page()) {
+  	  await sleep(SLEEP_FOR);
+  	  continue;
+  	} else {
+  	  break;
+  	}
+  }
 }
 
 
