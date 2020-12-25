@@ -4,12 +4,15 @@ const DELETE_MATCHING = "whirr";
 // Change to true if you want to cycle through all pages to delete scrobbles
 const ALL_PAGES = false;
 
+// Sleep in milliseconds between API calls. Don't hammer Last.fm's public API.
+const SLEEP_FOR = 600;
+
+
 const ROW_CLS = ".chartlist-row";
 const DELETE_CLS = ".more-item--delete";
 const PAGINATOR_CLS = ".pagination-page";
 const NEXT_CLS = ".pagination-next";
 const NEXT_LINK = `${NEXT_CLS} > a`;
-const SLEEP_FOR = 100;
 
 
 function sleep(ms) {
