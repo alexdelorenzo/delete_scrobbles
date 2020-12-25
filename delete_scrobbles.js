@@ -65,12 +65,12 @@ async function main() {
     const rows = get_rows();
     await delete_tracks(rows, DELETE_MATCHING);
 
-  	if (ALL_PAGES && next_page()) {
-  	  await sleep(SLEEP_FOR);
-  	  continue;
-  	} else {
-  	  break;
-  	}
+    if (ALL_PAGES && next_page()) {
+      await sleep(SLEEP_FOR);
+      continue;
+    } else {
+      break;
+    }
   }
 }
 
