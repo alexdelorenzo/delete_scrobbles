@@ -1,8 +1,9 @@
-// Replace DELETE_MATCHING with the text on the scrobbles you want to delete
-const DELETE_MATCHING = "whirr";
+// Replace DELETE_MATCHING with the text in the scrobbles you want to delete
+const DELETE_MATCHING = "YOUR TEXT HERE";
 
 // Change to true if you want to cycle through all pages to delete scrobbles
 const ALL_PAGES = false;
+
 
 const ROW_CLS = ".chartlist-row";
 const DELETE_CLS = ".more-item--delete";
@@ -12,6 +13,7 @@ const NEXT_LINK = `${NEXT_CLS} > a`;
 
 const DEL_SLEEP = 600;
 const PAGE_SLEEP = 5000;
+
 
 
 function sleep(ms) {
