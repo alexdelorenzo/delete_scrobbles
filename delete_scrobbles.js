@@ -68,9 +68,9 @@ async function main() {
 
     if (ALL_PAGES && nextPage()) {
       await sleep(PAGE_SLEEP);
-     } else {
+    } else {
       break;
-     }
+    }
   }
 }
 
