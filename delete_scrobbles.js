@@ -15,7 +15,6 @@ const DEL_SLEEP = 600;
 const PAGE_SLEEP = 5000;
 
 
-
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -69,7 +68,6 @@ async function main() {
 
     if (ALL_PAGES && nextPage()) {
       await sleep(PAGE_SLEEP);
-      continue;
      } else {
       break;
      }
