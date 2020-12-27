@@ -9,7 +9,9 @@ const DELETE_CLS = ".more-item--delete";
 const PAGINATOR_CLS = ".pagination-page";
 const NEXT_CLS = ".pagination-next";
 const NEXT_LINK = `${NEXT_CLS} > a`;
-const SLEEP_FOR = 100;
+
+const DEL_SLEEP = 600;
+const PAGE_SLEEP = 5000;
 
 
 function sleep(ms) {
@@ -24,6 +26,7 @@ function get_rows() {
   return rows;
 }
 
+
 async function handle_row(row, match) {
   const text = row.textContent.toLowerCase();
 
@@ -31,7 +34,7 @@ async function handle_row(row, match) {
     const delete_btn = row.querySelector(DELETE_CLS);
     delete_btn.click();
 
-    await sleep(SLEEP_FOR);
+    await sleep(DEL_SLEEP);
   }
 }
 
@@ -52,7 +55,7 @@ function next_page() {
     next_link.click();
     return true;
   }
-  
+
   return false;
 }
 
@@ -63,7 +66,7 @@ async function main() {
     await delete_tracks(rows, DELETE_MATCHING);
 
   	if (ALL_PAGES && next_page()) {
-  	  await sleep(SLEEP_FOR);
+  	  await sleep(PAGE_SLEEP);
   	  continue;
   	} else {
   	  break;
