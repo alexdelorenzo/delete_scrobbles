@@ -21,15 +21,15 @@ function sleep(ms) {
 }
 
 
-function get_rows() {
-  const rows_nl = document.querySelectorAll(ROW_CLS);
-  const rows = Array.from(rows_nl);
+function getRows() {
+  const rowNodes = document.querySelectorAll(ROW_CLS);
+  const rows = Array.from(rowNodes);
 
   return rows;
 }
 
 
-async function handle_row(row, match) {
+async function handleRow(row, match) {
   const text = row.textContent.toLowerCase();
 
   if (text.includes(match)) {
@@ -41,20 +41,20 @@ async function handle_row(row, match) {
 }
 
 
-async function delete_tracks(rows, match) {
+async function deleteTracks(rows, match) {
   match = match.toLowerCase();
 
   for (const row of rows) {
-    await handle_row(row, match);
+    await handleRow(row, match);
   }
 }
 
 
-function next_page() {
-  const next_link = document.querySelector(NEXT_LINK);
+function nextPage() {
+  const nextLink = document.querySelector(NEXT_LINK);
 
-  if (next_link !== null) {
-    next_link.click();
+  if (nextLink !== null) {
+    nextLink.click();
     return true;
   }
 
@@ -64,10 +64,10 @@ function next_page() {
 
 async function main() {
   while (true) {
-    const rows = get_rows();
-    await delete_tracks(rows, DELETE_MATCHING);
+    const rows = getRows();
+    await deleteTracks(rows, DELETE_MATCHING);
 
-    if (ALL_PAGES && next_page()) {
+    if (ALL_PAGES && nextPage()) {
       await sleep(PAGE_SLEEP);
        continue;
      } else {
