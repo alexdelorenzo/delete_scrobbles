@@ -33,8 +33,8 @@ async function handleRow(row, match) {
   const text = row.textContent.toLowerCase();
 
   if (text.includes(match)) {
-    const delete_btn = row.querySelector(DELETE_CLS);
-    delete_btn.click();
+    const deleteBtn = row.querySelector(DELETE_CLS);
+    deleteBtn.click();
 
     await sleep(DEL_SLEEP);
   }
