@@ -70,9 +70,9 @@ async function main() {
     if (ALL_PAGES && nextPage()) {
       await sleep(PAGE_SLEEP);
       continue;
-     } else {
+    } else {
       break;
-     }
+    }
   }
 }
 
